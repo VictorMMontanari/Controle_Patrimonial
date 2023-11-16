@@ -44,5 +44,29 @@ namespace Infra.SqlServer.Repositories
             usuario.Ativo = false;
             _context.SaveChanges();
         }
+        public string GetEmail(string email)
+        {
+            var usuario = _context.Usuarios.FirstOrDefault(i => i.Email == email);
+            if(usuario != null)
+            {
+                return usuario.Email;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public string GetSenha(string senha)
+        {
+            var usuario = _context.Usuarios.FirstOrDefault(i => i.Senha == senha);
+            if (usuario != null)
+            {
+                return usuario.Senha;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

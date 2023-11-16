@@ -11,11 +11,10 @@ namespace Controle_Patrimonial.Domain
     {
         [Key]
         public int CheckInPatrimonioId { get; set; }
-
         public int CheckInId { get; set; }
         public CheckIn CheckIn { get; set; }
-
         public int PatrimonioId { get; set; }
         public Patrimonio Patrimonio { get; set; }
+        public DateTime DataCheckIn { get; set; } // Adicionando a propriedade DataCheckIn
     }
 }

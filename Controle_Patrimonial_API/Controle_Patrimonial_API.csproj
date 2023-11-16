@@ -16,6 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Controle_Patrimonial.Application.Service\Controle_Patrimonial.Application.Service.csproj" />
+    <ProjectReference Include="..\Controle_Patrimonial.Domain.Service\Controle_Patrimonial.Domain.Service.csproj" />
     <ProjectReference Include="..\Infra.SqlServer\Infra.SqlServer.csproj" />
   </ItemGroup>
 

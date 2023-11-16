@@ -33,6 +33,11 @@ namespace Infra.SqlServer.Repositories
             _context.SaveChanges();
         }
 
+        public List<Patrimonio> GetAllYearPatrimonio(int year)
+        {
+            return _context.Patrimonios.Where(i => i.DataRegistro.Year == year).ToList();
+        }
+
         public void PostCheckIn(Patrimonio checkin)
         {
             throw new NotImplementedException();

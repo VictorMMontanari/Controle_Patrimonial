@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.SqlServer.Migrations
 {
     [DbContext(typeof(SqlServerContex))]
-    [Migration("20231027194418_BancoPatrimonio")]
+    [Migration("20231115010254_BancoPatrimonio")]
     partial class BancoPatrimonio
     {
         /// <inheritdoc />
@@ -80,6 +80,9 @@ namespace Infra.SqlServer.Migrations
 
                     b.Property<int>("CheckInId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("DataCheckIn")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("PatrimonioId")
                         .HasColumnType("int");

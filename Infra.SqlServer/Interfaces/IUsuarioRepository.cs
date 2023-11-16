@@ -14,5 +14,7 @@ namespace Infra.SqlServer.Interfaces
         public void PostUsuario(Usuario usuario);
         public void PutUsuario(Usuario usuario);
         public void DeleteUsuario(int usuarioId);
+        public string GetEmail(string email);
+        public string GetSenha(string senha);
     }
 }

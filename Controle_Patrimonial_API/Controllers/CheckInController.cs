@@ -1,4 +1,5 @@
-﻿using Controle_Patrimonial.Domain;
+﻿using Controle_Patrimonial.Application.Service;
+using Controle_Patrimonial.Domain;
 using Infra.SqlServer.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,10 +11,11 @@ namespace Controle_Patrimonial_API.Controllers
     public class CheckInController : ControllerBase
     {
         readonly ICheckInRepository _checkInRepository;
-
-        public CheckInController(ICheckInRepository checkInRepository)
+        readonly ApplicationServiceEnviarCheckIn _enviarCheckIn;
+        public CheckInController(ICheckInRepository checkInRepository, ApplicationServiceEnviarCheckIn enviarCheckIn)
         {
             _checkInRepository = checkInRepository;
+            _enviarCheckIn = enviarCheckIn;
         }
 
         [HttpGet]
@@ -43,6 +45,13 @@ namespace Controle_Patrimonial_API.Controllers
         {
             _checkInRepository.PutCheckIn(checkIn);
             return Ok("CheckIn Atualizado com sucesso!");
+        }
+        [HttpPost]
+        [Route("EnviarRelatorio")]
+        public ActionResult<Patrimonio> GerarRelatorio(int year)
+        {
+            var checkin = _enviarCheckIn.SendCheckIn(year);
+            return Ok(checkin);
         }
     }
 }

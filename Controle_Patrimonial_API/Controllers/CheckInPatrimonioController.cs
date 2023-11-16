@@ -26,9 +26,9 @@ namespace Controle_Patrimonial_API.Controllers
             return Ok(_checkInPatrimonioRepository.GetByIdCheckInPatrimonio(id));
         }
         [HttpPost]
-        public ActionResult<CheckInPatrimonio> PostCheckInPatrimonio(int checkInId, int patrimonioId)
+        public ActionResult<CheckInPatrimonio> PostCheckInPatrimonio(int checkInId, int patrimonioId, DateTime DataCheckIn)
         {
-            CheckInPatrimonio checkInPatrimonio = _checkInPatrimonioRepository.PostCheckInPatrimonio(checkInId, patrimonioId);
+            CheckInPatrimonio checkInPatrimonio = _checkInPatrimonioRepository.PostCheckInPatrimonio(checkInId, patrimonioId, DataCheckIn);
             return CreatedAtAction(nameof(GetById), new { id = checkInPatrimonio.CheckInPatrimonioId }, checkInPatrimonio);
         }
         [HttpPut]

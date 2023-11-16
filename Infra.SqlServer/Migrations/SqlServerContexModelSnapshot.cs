@@ -78,6 +78,9 @@ namespace Infra.SqlServer.Migrations
                     b.Property<int>("CheckInId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("DataCheckIn")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("PatrimonioId")
                         .HasColumnType("int");
 

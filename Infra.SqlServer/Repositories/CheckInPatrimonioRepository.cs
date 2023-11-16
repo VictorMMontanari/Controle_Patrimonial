@@ -18,6 +18,11 @@ namespace Infra.SqlServer.Repositories
             _context = contex;
         }
 
+        public void AddCheckInPatrimonio(CheckInPatrimonio checkInPatrimonio)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<CheckInPatrimonio> GetAllCheckInPatrimonio()
         {
             return _context.CheckInPatrimonios.ToList();
@@ -39,6 +44,22 @@ namespace Infra.SqlServer.Repositories
             _context.Add(checkInPatrimonio);
             _context.SaveChanges();
             return checkInPatrimonio;
+        }
+
+        public CheckInPatrimonio PostCheckInPatrimonio(int checkInId, int patrimonioId, DateTime dataCheckIn)
+        {
+            // Lógica para criar um novo objeto CheckInPatrimonio e salvar no banco de dados
+            CheckInPatrimonio novoCheckInPatrimonio = new CheckInPatrimonio
+            {
+                CheckInId = checkInId,
+                PatrimonioId = patrimonioId,
+                DataCheckIn = dataCheckIn
+                // ... outras propriedades, se houver
+            };
+
+            // Salvar no banco de dados ou fazer qualquer outra operação necessária
+
+            return novoCheckInPatrimonio;
         }
         public void PutCheckInPatrimonio(CheckInPatrimonio checkInPatrimonio)
         {

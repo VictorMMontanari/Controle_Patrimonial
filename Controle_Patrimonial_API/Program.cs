@@ -1,3 +1,5 @@
+using Controle_Patrimonial.Application.Service;
+using Controle_Patrimonial.Domain.Service;
 using Infra.SqlServer;
 using Infra.SqlServer.Interfaces;
 using Infra.SqlServer.Repositories;
@@ -12,8 +14,14 @@ builder.Services.AddScoped<ICheckInRepository, CheckInRepository>();
 builder.Services.AddScoped<IBlocoRepository, BlocoRepository>();
 builder.Services.AddScoped<ICheckInPatrimonioRepository, CheckInPatrimonioRepository>();
 
+// Injection of Controll Services
+builder.Services.AddScoped<EnviarCheckInService, EnviarCheckInService>();
+builder.Services.AddScoped<ApplicationServiceEnviarCheckIn, ApplicationServiceEnviarCheckIn>();
+builder.Services.AddScoped<Login, Login>();
+builder.Services.AddScoped<LoginService, LoginService>();
 builder.Services.AddScoped<SqlServerContex, SqlServerContex>();
 // Add services to the container.
+
 
 //Importante para rodar
 builder.Services.AddCors();

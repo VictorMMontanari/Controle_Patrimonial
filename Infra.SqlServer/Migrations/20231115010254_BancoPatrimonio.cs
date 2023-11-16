@@ -104,7 +104,8 @@ namespace Infra.SqlServer.Migrations
                     CheckInPatrimonioId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CheckInId = table.Column<int>(type: "int", nullable: false),
-                    PatrimonioId = table.Column<int>(type: "int", nullable: false)
+                    PatrimonioId = table.Column<int>(type: "int", nullable: false),
+                    DataCheckIn = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

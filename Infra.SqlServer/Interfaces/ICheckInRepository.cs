@@ -11,6 +11,7 @@ namespace Infra.SqlServer.Interfaces
     {
         public List<CheckIn> GetAllCheckIn();
         public CheckIn GetByIdCheckIn(int id);
+        public List<Patrimonio> GetAllYearPatrimonio(int year);
         public void PostCheckIn(CheckIn checkIn);
         void PostCheckIn(Patrimonio checkin);
         public void PutCheckIn(CheckIn checkIn);

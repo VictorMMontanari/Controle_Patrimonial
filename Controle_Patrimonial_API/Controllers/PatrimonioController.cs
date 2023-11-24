@@ -48,11 +48,25 @@ namespace Controle_Patrimonial_API.Controllers
         }
 
         [HttpPut]
-        public ActionResult<Patrimonio> PutPatrimonio(Patrimonio patrimonio)
+        public ActionResult<Patrimonio> PutPatrimonio([FromBody] PatrimonioPutModel model)
         {
+            var patrimonio = new Patrimonio
+            {
+                PatrimonioId = model.PatrimonioId,
+                CodigoBarra = model.CodigoBarra,
+                Tipo = model.Tipo,
+                Nome = model.Nome,
+                Valor = model.Valor,
+                NotaFiscal = model.NotaFiscal,
+                Ativo = model.Ativo,
+                DataRegistro = model.DataRegistro,
+                UsuarioId = model.UsuarioId,
+                BlocoId = model.BlocoId
+            };
             _patrimonioRepository.PutPatrimonio(patrimonio);
             return Ok("Patrimonio Atualizado com sucesso!");
         }
+
         [HttpPut("{id}")]
         public ActionResult<Patrimonio> DeletePatrimonio(int id)
         {

@@ -6,7 +6,6 @@ using Infra.SqlServer.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 // Injection of Controll
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IPatrimonioRepository, PatrimonioRepository>();
@@ -20,20 +19,16 @@ builder.Services.AddScoped<ApplicationServiceEnviarCheckIn, ApplicationServiceEn
 builder.Services.AddScoped<Login, Login>();
 builder.Services.AddScoped<LoginService, LoginService>();
 builder.Services.AddScoped<SqlServerContex, SqlServerContex>();
+
 // Add services to the container.
-
-
-//Importante para rodar
-builder.Services.AddCors();
-
 builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 {
     builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
 }));
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -55,10 +50,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-app.UseCors(c =>
-{
-    c.AllowAnyHeader();
-    c.AllowAnyMethod();
-    c.AllowAnyOrigin();
-});
